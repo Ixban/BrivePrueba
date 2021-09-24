@@ -1,0 +1,119 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Prueba</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="~/Css/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" media="screen" />-
+</head>
+<body>
+    <div class="adminx-container">
+        <nav class="navbar navbar-expand justify-content-between fixed-top">
+            <a class="navbar-brand mb-0 h1 d-none d-md-block" href="#">
+                <img src="~/Css/icon.png" class="navbar-brand-image d-inline-block align-top mr-2" alt="">
+                Prueba
+            </a>
+
+            <ul class="navbar-nav d-flex justify-content-end mr-2">
+                <li class="nav-item dropdown">
+                    <a class="nav-link avatar-with-name" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#">
+                        <img src="~/Css/icon.png" class="d-inline-block align-top" alt="">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item text-danger" href="@Url.Action("LogOut", "Home")">Cerrar Sesion</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="adminx-sidebar expand-hover push">
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="@Url.Action("Index", "Usuario")" class="sidebar-nav-link active">
+                        <span class="sidebar-nav-icon">
+                            <i data-feather="user"></i>
+                        </span>
+                        <span class="sidebar-nav-name">
+                            Usuarios
+                        </span>
+                        <span class="sidebar-nav-end">
+
+                        </span>
+                    </a>
+                </li>
+
+                <li class="sidebar-nav-item">
+                    <a href="@Url.Action("Index", "Logs")" class="sidebar-nav-link active">
+                        <span class="sidebar-nav-icon">
+                            <i data-feather="home"></i>
+                        </span>
+                        <span class="sidebar-nav-name">
+                            Logs
+                        </span>
+                        <span class="sidebar-nav-end">
+
+                        </span>
+                    </a>
+                </li>
+
+                <li class="sidebar-nav-item">
+                    <a href="@Url.Action("Index", "Sucursal")" class="sidebar-nav-link active">
+                        <span class="sidebar-nav-icon">
+                            <i data-feather="home"></i>
+                        </span>
+                        <span class="sidebar-nav-name">
+                            Sucursal
+                        </span>
+                        <span class="sidebar-nav-end">
+
+                        </span>
+                    </a>
+                </li>
+
+                <li class="sidebar-nav-item">
+                    <a href="@Url.Action("Index", "Producto")" class="sidebar-nav-link active">
+                        <span class="sidebar-nav-icon">
+                            <i data-feather="home"></i>
+                        </span>
+                        <span class="sidebar-nav-name">
+                            Productos
+                        </span>
+                        <span class="sidebar-nav-end">
+
+                        </span>
+                    </a>
+                </li>
+
+                <li class="sidebar-nav-item">
+                    <a href="@Url.Action("Index", "Inventory")" class="sidebar-nav-link active">
+                        <span class="sidebar-nav-icon">
+                            <i data-feather="home"></i>
+                        </span>
+                        <span class="sidebar-nav-name">
+                            Inventarios
+                        </span>
+                        <span class="sidebar-nav-end">
+
+                        </span>
+                    </a>
+                </li>
+
+
+
+            </ul>
+        </div>
+
+        @RenderBody()
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        <script src="~/Scripts/vendor.js"></script>
+        <script src="~/Scripts/adminx.js"></script>
+
+        <script src="~/Scripts/JavaScript.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+</body>
+</html>

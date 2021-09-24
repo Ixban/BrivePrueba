@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="briveModelStoreContainer" CdmEntityContainer="briveEntities">
+    <EntitySetMapping Name="inventory">
+      <EntityTypeMapping TypeName="briveModel.inventory">
+        <MappingFragment StoreEntitySet="inventory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="edited" ColumnName="edited" />
+          <ScalarProperty Name="idproduct" ColumnName="idproduct" />
+          <ScalarProperty Name="idsucursal" ColumnName="idsucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="log">
+      <EntityTypeMapping TypeName="briveModel.log">
+        <MappingFragment StoreEntitySet="log">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="module" ColumnName="module" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="edited" ColumnName="edited" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product">
+      <EntityTypeMapping TypeName="briveModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="edited" ColumnName="edited" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sucursal">
+      <EntityTypeMapping TypeName="briveModel.sucursal">
+        <MappingFragment StoreEntitySet="sucursal">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sucursalname" ColumnName="sucursalname" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direction" ColumnName="direction" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="edited" ColumnName="edited" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="briveModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="edited" ColumnName="edited" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getLogs" FunctionName="briveModel.Store.getLogs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="briveModel.getLogs_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="module" ColumnName="module" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="edited" ColumnName="edited" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getProduct" FunctionName="briveModel.Store.getProduct">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="briveModel.getProduct_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="edited" ColumnName="edited" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getProductId" FunctionName="briveModel.Store.getProductId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="briveModel.getProductId_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="edited" ColumnName="edited" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getSucursales" FunctionName="briveModel.Store.getSucursales">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="briveModel.getSucursales_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sucursalname" ColumnName="sucursalname" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direction" ColumnName="direction" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="edited" ColumnName="edited" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getSucursalId" FunctionName="briveModel.Store.getSucursalId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="briveModel.getSucursalId_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sucursalname" ColumnName="sucursalname" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direction" ColumnName="direction" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="edited" ColumnName="edited" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUsuarioId" FunctionName="briveModel.Store.GetUsuarioId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="briveModel.GetUsuarioId_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="edited" ColumnName="edited" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getUsuarios" FunctionName="briveModel.Store.getUsuarios">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="briveModel.getUsuarios_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="edited" ColumnName="edited" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LoginUsuario" FunctionName="briveModel.Store.LoginUsuario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="briveModel.LoginUsuario_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="edited" ColumnName="edited" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="logsAdd" FunctionName="briveModel.Store.logsAdd" />
+    <FunctionImportMapping FunctionImportName="productAdd" FunctionName="briveModel.Store.productAdd" />
+    <FunctionImportMapping FunctionImportName="productDelete" FunctionName="briveModel.Store.productDelete" />
+    <FunctionImportMapping FunctionImportName="productUpdate" FunctionName="briveModel.Store.productUpdate" />
+    <FunctionImportMapping FunctionImportName="sucursalAdd" FunctionName="briveModel.Store.sucursalAdd" />
+    <FunctionImportMapping FunctionImportName="sucursalDelete" FunctionName="briveModel.Store.sucursalDelete" />
+    <FunctionImportMapping FunctionImportName="updateSucursal" FunctionName="briveModel.Store.updateSucursal" />
+    <FunctionImportMapping FunctionImportName="UpdateUsuario" FunctionName="briveModel.Store.UpdateUsuario" />
+    <FunctionImportMapping FunctionImportName="userDelete" FunctionName="briveModel.Store.userDelete" />
+    <FunctionImportMapping FunctionImportName="UsuarioAdd" FunctionName="briveModel.Store.UsuarioAdd" />
+    <FunctionImportMapping FunctionImportName="getInventory" FunctionName="briveModel.Store.getInventory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="briveModel.getInventory_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="idproduct" ColumnName="idproduct" />
+          <ScalarProperty Name="idsucursal" ColumnName="idsucursal" />
+          <ScalarProperty Name="productoNombre" ColumnName="productoNombre" />
+          <ScalarProperty Name="sucursalNombre" ColumnName="sucursalNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getInventoryId" FunctionName="briveModel.Store.getInventoryId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="briveModel.getInventoryId_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="idproduct" ColumnName="idproduct" />
+          <ScalarProperty Name="idsucursal" ColumnName="idsucursal" />
+          <ScalarProperty Name="productoNombre" ColumnName="productoNombre" />
+          <ScalarProperty Name="sucursalNombre" ColumnName="sucursalNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="inventoryAdd" FunctionName="briveModel.Store.inventoryAdd" />
+    <FunctionImportMapping FunctionImportName="inventoryDelete" FunctionName="briveModel.Store.inventoryDelete" />
+    <FunctionImportMapping FunctionImportName="inventoryUpdate" FunctionName="briveModel.Store.inventoryUpdate" />
+  </EntityContainerMapping>
+</Mapping>

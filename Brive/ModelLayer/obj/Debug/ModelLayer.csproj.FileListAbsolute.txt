@@ -1,0 +1,6 @@
+C:\Users\Ixban\source\repos\Brive\ModelLayer\bin\Debug\ModelLayer.dll
+C:\Users\Ixban\source\repos\Brive\ModelLayer\bin\Debug\ModelLayer.pdb
+C:\Users\Ixban\source\repos\Brive\ModelLayer\obj\Debug\ModelLayer.csproj.AssemblyReference.cache
+C:\Users\Ixban\source\repos\Brive\ModelLayer\obj\Debug\ModelLayer.csproj.CoreCompileInputs.cache
+C:\Users\Ixban\source\repos\Brive\ModelLayer\obj\Debug\ModelLayer.dll
+C:\Users\Ixban\source\repos\Brive\ModelLayer\obj\Debug\ModelLayer.pdb

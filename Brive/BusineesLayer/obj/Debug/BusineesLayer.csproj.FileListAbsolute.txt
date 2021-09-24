@@ -1,0 +1,17 @@
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\bin\Debug\BusineesLayer.dll.config
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\bin\Debug\BusineesLayer.dll
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\bin\Debug\BusineesLayer.pdb
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\bin\Debug\DataLayer.dll
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\bin\Debug\EntityFramework.dll
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\bin\Debug\ModelLayer.dll
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\bin\Debug\DataLayer.pdb
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\bin\Debug\DataLayer.dll.config
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\bin\Debug\ModelLayer.pdb
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\bin\Debug\EntityFramework.xml
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\obj\Debug\BusineesLayer.csproj.AssemblyReference.cache
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\obj\Debug\BusineesLayer.csproj.CoreCompileInputs.cache
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\obj\Debug\BusineesLayer.csproj.CopyComplete
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\obj\Debug\BusineesLayer.dll
+C:\Users\Ixban\source\repos\Brive\BusineesLayer\obj\Debug\BusineesLayer.pdb

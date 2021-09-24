@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="briveModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="inventory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="amount" Type="Int32" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="edited" Type="DateTime" Precision="3" />
+    <Property Name="idproduct" Type="Int32" />
+    <Property Name="idsucursal" Type="Int32" />
+    <NavigationProperty Name="sucursal" Relationship="Self.FK__inventory__idsuc__5AEE82B9" FromRole="inventory" ToRole="sucursal" />
+  </EntityType>
+  <EntityType Name="log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="iduser" Type="Int32" />
+    <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="module" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="edited" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="125" FixedLength="false" Unicode="false" />
+    <Property Name="sku" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="edited" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="sucursal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sucursalname" Type="String" MaxLength="125" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="Int32" />
+    <Property Name="direction" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="edited" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="inventory" Relationship="Self.FK__inventory__idsuc__5AEE82B9" FromRole="sucursal" ToRole="inventory" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="125" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" MaxLength="125" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="edited" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK__inventory__idsuc__5AEE82B9">
+    <End Role="sucursal" Type="Self.sucursal" Multiplicity="0..1" />
+    <End Role="inventory" Type="Self.inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sucursal">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="inventory">
+        <PropertyRef Name="idsucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="briveEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="inventory" EntityType="Self.inventory" />
+    <EntitySet Name="log" EntityType="Self.log" />
+    <EntitySet Name="product" EntityType="Self.product" />
+    <EntitySet Name="sucursal" EntityType="Self.sucursal" />
+    <EntitySet Name="users" EntityType="Self.users" />
+    <AssociationSet Name="FK__inventory__idsuc__5AEE82B9" Association="Self.FK__inventory__idsuc__5AEE82B9">
+      <End Role="sucursal" EntitySet="sucursal" />
+      <End Role="inventory" EntitySet="inventory" />
+    </AssociationSet>
+    <FunctionImport Name="getLogs" ReturnType="Collection(briveModel.getLogs_Result)" />
+    <FunctionImport Name="getProduct" ReturnType="Collection(briveModel.getProduct_Result)" />
+    <FunctionImport Name="getProductId" ReturnType="Collection(briveModel.getProductId_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getSucursales" ReturnType="Collection(briveModel.getSucursales_Result)" />
+    <FunctionImport Name="getSucursalId" ReturnType="Collection(briveModel.getSucursalId_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetUsuarioId" ReturnType="Collection(briveModel.GetUsuarioId_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getUsuarios" ReturnType="Collection(briveModel.getUsuarios_Result)" />
+    <FunctionImport Name="LoginUsuario" ReturnType="Collection(briveModel.LoginUsuario_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="logsAdd">
+      <Parameter Name="iduser" Mode="In" Type="Int32" />
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="module" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="productAdd">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="sku" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="productDelete">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="productUpdate">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="sku" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sucursalAdd">
+      <Parameter Name="sucursalname" Mode="In" Type="String" />
+      <Parameter Name="telefono" Mode="In" Type="Int32" />
+      <Parameter Name="direction" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sucursalDelete">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="updateSucursal">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="sucursalname" Mode="In" Type="String" />
+      <Parameter Name="telefono" Mode="In" Type="Int32" />
+      <Parameter Name="direction" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateUsuario">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="lastname" Mode="In" Type="String" />
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="userDelete">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UsuarioAdd">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="lastname" Mode="In" Type="String" />
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="created" Mode="In" Type="DateTime" />
+      <Parameter Name="edited" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="getInventory" ReturnType="Collection(briveModel.getInventory_Result)" />
+    <FunctionImport Name="getInventoryId" ReturnType="Collection(briveModel.getInventoryId_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="inventoryAdd">
+      <Parameter Name="amount" Mode="In" Type="Int32" />
+      <Parameter Name="idProduct" Mode="In" Type="Int32" />
+      <Parameter Name="idSucursal" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="inventoryDelete">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="inventoryUpdate">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="amount" Mode="In" Type="Int32" />
+      <Parameter Name="idProduct" Mode="In" Type="Int32" />
+      <Parameter Name="idSucursal" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="getLogs_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="iduser" Nullable="true" />
+    <Property Type="String" Name="action" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="module" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="created" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="edited" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="getProduct_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="125" />
+    <Property Type="String" Name="sku" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="created" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="edited" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="getProductId_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="125" />
+    <Property Type="String" Name="sku" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="created" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="edited" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="getSucursales_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="sucursalname" Nullable="true" MaxLength="125" />
+    <Property Type="Int32" Name="telefono" Nullable="true" />
+    <Property Type="String" Name="direction" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="created" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="edited" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="getSucursalId_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="sucursalname" Nullable="true" MaxLength="125" />
+    <Property Type="Int32" Name="telefono" Nullable="true" />
+    <Property Type="String" Name="direction" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="created" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="edited" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetUsuarioId_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="125" />
+    <Property Type="String" Name="lastname" Nullable="true" MaxLength="125" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="created" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="edited" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="getUsuarios_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="125" />
+    <Property Type="String" Name="lastname" Nullable="true" MaxLength="125" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="created" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="edited" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="LoginUsuario_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="125" />
+    <Property Type="String" Name="lastname" Nullable="true" MaxLength="125" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="created" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="edited" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="getInventory_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="amount" Nullable="true" />
+    <Property Type="Int32" Name="idproduct" Nullable="true" />
+    <Property Type="Int32" Name="idsucursal" Nullable="true" />
+    <Property Type="String" Name="productoNombre" Nullable="true" MaxLength="125" />
+    <Property Type="String" Name="sucursalNombre" Nullable="true" MaxLength="125" />
+  </ComplexType>
+  <ComplexType Name="getInventoryId_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="amount" Nullable="true" />
+    <Property Type="Int32" Name="idproduct" Nullable="true" />
+    <Property Type="Int32" Name="idsucursal" Nullable="true" />
+    <Property Type="String" Name="productoNombre" Nullable="true" MaxLength="125" />
+    <Property Type="String" Name="sucursalNombre" Nullable="true" MaxLength="125" />
+  </ComplexType>
+</Schema>

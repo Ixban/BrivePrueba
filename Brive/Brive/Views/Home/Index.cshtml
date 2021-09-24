@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AdminX - The last Admin template you'll ever need</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="~/css/login.css">
+</head>
+<body>
+    <div id="login">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="~/Css/icon.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            @using (Html.BeginForm("LogIn", "Home", FormMethod.Post, new { @class = "form-signin" }))
+            {<span id="reauth-email" class="reauth-email"></span>
+                <input type="text" id="username" name="username" class="form-control" placeholder="usuario" required autofocus>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Contraseñas" required>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" name="submit" type="submit">Iniciar Sesion</button>
+            }
+        </div>
+    </div>
+</body>
+
+</html>

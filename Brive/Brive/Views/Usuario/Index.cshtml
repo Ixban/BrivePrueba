@@ -1,0 +1,129 @@
+﻿@model List<ModelLayer.Users>
+<!-- expand-hover push -->
+<!-- Sidebar -->
+<!-- Sidebar End -->
+<!-- adminx-content-aside -->
+<div class="adminx-content">
+    <!-- <div class="adminx-aside">
+
+    </div> -->
+
+    <div class="adminx-main-content">
+        <div class="container-fluid">
+            <!-- BreadCrumb -->
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb adminx-page-breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Usuario</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Listado De Usuarios</li>
+                </ol>
+            </nav>
+
+            <div class="pb-3">
+                <h1>Usuarios</h1>
+                <button class="btn btn-sm btn-primary" onclick="openModal()">Crear Usuario</button>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="card mb-grid">
+                        <div class="table-responsive-md">
+                            <table class="table table-actions table-striped table-hover mb-0" data-table-3>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <label class="custom-control custom-checkbox m-0 p-0">
+                                                <input type="checkbox" class="custom-control-input table-select-all">
+                                                <span class="custom-control-indicator"></span>
+                                            </label>
+                                        </th>
+                                        <th scope="col">Nombres</th>
+                                        <th scope="col">Apellidos</th>
+                                        <th scope="col">Usuario</th>
+                                        <th scope="col">email</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (ModelLayer.Users user in Model)
+                                    {
+                                        <tr>
+                                            <th scope="row">
+                                                <label class="custom-control custom-checkbox m-0 p-0">
+                                                    <input type="checkbox" class="custom-control-input table-select-row">
+                                                    <span class="custom-control-indicator"></span>
+                                                </label>
+                                            </th>
+                                            <td>@user.name</td>
+                                            <td>@user.lastName</td>
+                                            <td>@user.userName</td>
+                                            <td>@user.email</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="edit(@user.id)">Editar</button>
+                                                <a class="btn btn-sm btn-danger" href="@Url.Action("Delete", "Usuario", new { id = int.Parse(user.id.ToString()) })">Eliminar</a>
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="#" id="formUser" onsubmit="return validateForm()">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="inputNombre" class="col-sm-2 col-form-label">Nombre(s)</label>
+                        <div class="col-sm-10">
+                            <input type="hidden" id="inputId">
+                            <input type="text" class="form-control" id="inputNombre" placeholder="Nombre(s)">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputApellidoP" class="col-sm-2 col-form-label">Apellidos</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputApellidoP" placeholder="Apellido Paterno">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputUsuario" class="col-sm-2 col-form-label">Usuario</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputUsuario" placeholder="Usuario" minlength="5">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclik="closeModal">cerrar</button>
+                    <button type="button" class="btn btn-primary" id="Action">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
